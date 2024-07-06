@@ -5,22 +5,22 @@ summary: Azure Web App Environment with a data store
 description: Deploys an Azure Web App with a data store
 runner: ARM
 templatePath: websql.json
-# parameters:
-#   - id: siteName
-#     name: siteName
-#     description: 'Name of the Web App.'
-#     type: string
-#     required: true
-  # - id: administratorLogin
-  #   name: administratorLogin
-  #   description: 'Database administrator login name'
-  #   type: string
-  #   required: true
-  # - id: administratorLoginPassword
-  #   name: administratorLoginPassword
-  #   description: 'Database administrator password'
-  #   type: string
-  #   required: true
+parameters:
+  - id: siteName
+    name: siteName
+    description: 'Name of the Web App.'
+    type: string
+    required: true
+  - id: administratorLogin
+    name: administratorLogin
+    description: 'Database administrator login name'
+    type: string
+    required: true
+  - id: administratorLoginPassword
+    name: administratorLoginPassword
+    description: 'Database administrator password'
+    type: string
+    required: true
   # # - id: databaseSkucapacity
   # #   name: databaseSkucapacity
   # #   description: 'Azure database for MySQL compute capacity in vCores (2,4,8,16,32)'
