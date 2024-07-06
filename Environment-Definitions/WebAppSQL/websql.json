@@ -30,12 +30,18 @@
           "description": "Database administrator password"
         }
       },
-
+      "serverName": {
+        "type": "string",
+        "defaultValue": "provaserverric123",
+        "metadata": {
+          "description": "Azure DB Server name"
+        }
+      },
       "sqlDBName": {
         "type": "string",
         "defaultValue": "provadb",
         "metadata": {
-          "description": "Azure database for MySQL pricing tier"
+          "description": "Azure database for SQL Name"
         }
       },
       "location": {
