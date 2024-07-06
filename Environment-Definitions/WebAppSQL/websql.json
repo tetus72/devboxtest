@@ -159,7 +159,7 @@
       },
       {
         "type": "Microsoft.DBforMySQL/flexibleServers",
-        "apiVersion": "2021-05-01",
+        "apiVersion": "2023-10-01-preview",
         "name": "[variables('serverName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -183,8 +183,8 @@
         }
       },
       {
-        "type": "Microsoft.DBforMySQL/servers/firewallRules",
-        "apiVersion": "2017-12-01",
+        "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
+        "apiVersion": "2023-06-30",
         "name": "[format('{0}/{1}', variables('serverName'), 'AllowAzureIPs')]",
         "properties": {
           "startIpAddress": "0.0.0.0",
@@ -196,8 +196,8 @@
         ]
       },
       {
-        "type": "Microsoft.DBforMySQL/servers/databases",
-        "apiVersion": "2017-12-01",
+        "type": "Microsoft.DBforMySQL/flexibleServers/databases",
+        "apiVersion": "2023-06-30",
         "name": "[format('{0}/{1}', variables('serverName'), variables('databaseName'))]",
         "properties": {
           "charset": "utf8",
