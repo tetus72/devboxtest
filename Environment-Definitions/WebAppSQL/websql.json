@@ -159,53 +159,24 @@
       },
       {
         "type": "Microsoft.DBforMySQL/flexibleServers",
-        "apiVersion": "2023-10-01-preview",
+        "apiVersion": "2021-12-01-preview",
         "name": "[variables('serverName')]",
         "location": "[parameters('location')]",
         "sku": {
           "name": "[parameters('databaseSkuName')]",
-          "tier": "[parameters('databaseSkuTier')]",
-          "capacity": "[parameters('databaseSkucapacity')]",
-          "size": "[string(parameters('databaseSkuSizeMB'))]",
-          "family": "[parameters('databaseSkuFamily')]"
+          "tier": "[parameters('databaseSkuTier')]"
         },
         "properties": {
-          "createMode": "Default",
           "version": "[parameters('mySqlVersion')]",
           "administratorLogin": "[parameters('administratorLogin')]",
           "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-          "storageProfile": {
+          "storage": {
             "storageMB": "[parameters('databaseSkuSizeMB')]",
             "backupRetentionDays": 7,
             "geoRedundantBackup": "Disabled"
           },
           "sslEnforcement": "Disabled"
         }
-      },
-      {
-        "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
-        "apiVersion": "2023-06-30",
-        "name": "[format('{0}/{1}', variables('serverName'), 'AllowAzureIPs')]",
-        "properties": {
-          "startIpAddress": "0.0.0.0",
-          "endIpAddress": "0.0.0.0"
-        },
-        "dependsOn": [
-          "[resourceId('Microsoft.DBforMySQL/flexibleServers/databases', variables('serverName'), variables('databaseName'))]",
-          "[resourceId('Microsoft.DBforMySQL/flexibleServers', variables('serverName'))]"
-        ]
-      },
-      {
-        "type": "Microsoft.DBforMySQL/flexibleServers/databases",
-        "apiVersion": "2023-06-30",
-        "name": "[format('{0}/{1}', variables('serverName'), variables('databaseName'))]",
-        "properties": {
-          "charset": "utf8",
-          "collation": "utf8_general_ci"
-        },
-        "dependsOn": [
-          "[resourceId('Microsoft.DBforMySQL/flexibleServers', variables('serverName'))]"
-        ]
       }
     ]
   }
