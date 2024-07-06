@@ -171,9 +171,8 @@
           "administratorLogin": "[parameters('administratorLogin')]",
           "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
           "storage": {
-            "storageMB": "[parameters('databaseSkuSizeMB')]"
-          },
-          "sslEnforcement": "Disabled"
+            "storageSizeGB": "[parameters('databaseSkuSizeMB')]"
+          }
         }
       }
     ]
