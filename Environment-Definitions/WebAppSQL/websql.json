@@ -46,9 +46,9 @@
       },
       "databaseSkuName": {
         "type": "string",
-        "defaultValue": "GP_Gen5_2",
+        "defaultValue": "Standard_D4_v4",
         "allowedValues": [
-          "GP_Gen5_2",
+          "Standard_D4_v4",
           "GP_Gen5_4",
           "GP_Gen5_8",
           "GP_Gen5_16",
