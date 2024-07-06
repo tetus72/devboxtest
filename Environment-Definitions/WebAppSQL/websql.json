@@ -153,13 +153,13 @@
           }
         },
         "dependsOn": [
-          "[resourceId('Microsoft.DBforMySQL/servers', variables('serverName'))]",
+          "[resourceId('Microsoft.DBforMySQL/flexibleServers', variables('serverName'))]",
           "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
         ]
       },
       {
-        "type": "Microsoft.DBforMySQL/servers",
-        "apiVersion": "2017-12-01",
+        "type": "Microsoft.DBforMySQL/flexibleServers",
+        "apiVersion": "2021-05-01",
         "name": "[variables('serverName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -192,7 +192,7 @@
         },
         "dependsOn": [
           "[resourceId('Microsoft.DBforMySQL/servers/databases', variables('serverName'), variables('databaseName'))]",
-          "[resourceId('Microsoft.DBforMySQL/servers', variables('serverName'))]"
+          "[resourceId('Microsoft.DBforMySQL/flexibleServers', variables('serverName'))]"
         ]
       },
       {
@@ -204,7 +204,7 @@
           "collation": "utf8_general_ci"
         },
         "dependsOn": [
-          "[resourceId('Microsoft.DBforMySQL/servers', variables('serverName'))]"
+          "[resourceId('Microsoft.DBforMySQL/flexibleServers', variables('serverName'))]"
         ]
       }
     ]
