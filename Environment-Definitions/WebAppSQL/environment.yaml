@@ -37,7 +37,7 @@ parameters:
     description: 'Azure database for MySQL sku name'
     type: string
     required: true
-    allowedValues:
+    allowed:
       - "GP_Gen5_2"
       - "GP_Gen5_4"
       - "GP_Gen5_8"
@@ -53,30 +53,30 @@ parameters:
   #   description: 'Azure database for MySQL Sku Size'
   #   type: int
   #   required: true
-  #   allowedValues:
+  #   allowed:
   #     - 51200
   #     - 102400
-  # - id: databaseSkuTier
-  #   name: databaseSkuTier
-  #   description: 'Azure database for MySQL pricing tier'
-  #   type: string
-  #   required: true
-  #   allowedValues:
-  #     - "GeneralPurpose"
-  #     - "MemoryOptimized"
-  # - id: mySqlVersion
-  #   name: mySqlVersion
-  #   description: 'MySQL version'
-  #   type: string
-  #   required: true
-  #   allowedValues:
-  #     - "5.6"
-  #     - "5.7"
-  # - id: location
-  #   name: location
-  #   description: 'Location for all resources.'
-  #   type: string
-  #   required: true
+  - id: databaseSkuTier
+    name: databaseSkuTier
+    description: 'Azure database for MySQL pricing tier'
+    type: string
+    required: true
+    allowed:
+      - "GeneralPurpose"
+      - "MemoryOptimized"
+  - id: mySqlVersion
+    name: mySqlVersion
+    description: 'MySQL version'
+    type: string
+    required: true
+    allowed:
+      - "5.6"
+      - "5.7"
+  - id: location
+    name: location
+    description: 'Location for all resources.'
+    type: string
+    required: true
 
 
 
