@@ -21,48 +21,11 @@ parameters:
     description: 'Database administrator password'
     type: string
     required: true
-  # - id: databaseSkucapacity
-  #   name: databaseSkucapacity
-  #   description: 'Azure database for MySQL compute capacity in vCores (2,4,8,16,32)'
-  #   type: int
-  #   required: true
-  #   allowedValues:
-  #     - 2
-  #     - 4
-  #     - 8
-  #     - 16
-  #     - 32
-  - id: databaseSkuName
-    name: databaseSkuName
-    description: 'Azure database for MySQL sku name'
+  - id: sqlDBName
+    name: sqlDBName
+    description: 'Azure database for sql db name'
     type: string
     required: true
-    allowed:
-      - "GP_Standard_D2ds_v4"
-  # - id: databaseSkuSizeMB
-  #   name: databaseSkuSizeMB
-  #   description: 'Azure database for MySQL Sku Size'
-  #   type: int
-  #   required: true
-  #   allowed:
-  #     - 51200
-  #     - 102400
-  - id: databaseSkuTier
-    name: databaseSkuTier
-    description: 'Azure database for MySQL pricing tier'
-    type: string
-    required: true
-    allowed:
-      - "GeneralPurpose"
-      - "MemoryOptimized"
-  - id: mySqlVersion
-    name: mySqlVersion
-    description: 'MySQL version'
-    type: string
-    required: true
-    allowed:
-      - "5.6"
-      - "5.7"
   - id: location
     name: location
     description: 'Location for all resources.'

@@ -30,61 +30,12 @@
           "description": "Database administrator password"
         }
       },
-      "databaseSkucapacity": {
-        "type": "int",
-        "defaultValue": 2,
-        "allowedValues": [
-          2,
-          4,
-          8,
-          16,
-          32
-        ],
-        "metadata": {
-          "description": "Azure database for MySQL compute capacity in vCores (2,4,8,16,32)"
-        }
-      },
-      "databaseSkuName": {
+
+      "sqlDBName": {
         "type": "string",
-        "defaultValue": "GP_Standard_D2ds_v4",
-        "allowedValues": [
-          "GP_Standard_D2ds_v4"
-        ],
-        "metadata": {
-          "description": "Azure database for MySQL sku name "
-        }
-      },
-      "databaseSkuSizeMB": {
-        "type": "int",
-        "defaultValue": 51200,
-        "allowedValues": [
-          51200,
-          102400
-        ],
-        "metadata": {
-          "description": "Azure database for MySQL Sku Size "
-        }
-      },
-      "databaseSkuTier": {
-        "type": "string",
-        "defaultValue": "GeneralPurpose",
-        "allowedValues": [
-          "GeneralPurpose",
-          "MemoryOptimized"
-        ],
+        "defaultValue": "provadb",
         "metadata": {
           "description": "Azure database for MySQL pricing tier"
-        }
-      },
-      "mySqlVersion": {
-        "type": "string",
-        "defaultValue": "5.7",
-        "allowedValues": [
-          "5.6",
-          "5.7"
-        ],
-        "metadata": {
-          "description": "MySQL version"
         }
       },
       "location": {
@@ -92,13 +43,6 @@
         "defaultValue": "[resourceGroup().location]",
         "metadata": {
           "description": "Location for all resources."
-        }
-      },
-      "databaseSkuFamily": {
-        "type": "string",
-        "defaultValue": "Gen5",
-        "metadata": {
-          "description": "Azure database for MySQL sku family"
         }
       }
     },
@@ -139,32 +83,37 @@
         "name": "[format('{0}/{1}', parameters('siteName'), 'connectionstrings')]",
         "properties": {
           "defaultConnection": {
-            "value": "[format('Database={0};Data Source={1};User Id={2}@{3};Password={4}', variables('databaseName'), reference(resourceId('Microsoft.DBforMySQL/flexibleServers', variables('serverName'))).fullyQualifiedDomainName, parameters('administratorLogin'), variables('serverName'), parameters('administratorLoginPassword'))]",
+            "value": "[format('Database={0};Data Source={1};User Id={2}@{3};Password={4}', variables('databaseName'), reference(resourceId('Microsoft.Sql/servers', variables('serverName'))).fullyQualifiedDomainName, parameters('administratorLogin'), variables('serverName'), parameters('administratorLoginPassword'))]",
             "type": "MySql"
           }
         },
         "dependsOn": [
-          "[resourceId('Microsoft.DBforMySQL/flexibleServers', variables('serverName'))]",
+          "[resourceId('Microsoft.Sql/servers', variables('serverName'))]",
           "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
         ]
       },
       {
-        "type": "Microsoft.DBforMySQL/flexibleServers",
-        "apiVersion": "2021-12-01-preview",
-        "name": "[variables('serverName')]",
+        "type": "Microsoft.Sql/servers",
+        "apiVersion": "2022-05-01-preview",
+        "name": "[parameters('serverName')]",
+        "location": "[parameters('location')]",
+        "properties": {
+          "administratorLogin": "[parameters('administratorLogin')]",
+          "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
+        }
+      },
+      {
+        "type": "Microsoft.Sql/servers/databases",
+        "apiVersion": "2022-05-01-preview",
+        "name": "[format('{0}/{1}', parameters('serverName'), parameters('sqlDBName'))]",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "[parameters('databaseSkuName')]",
-          "tier": "[parameters('databaseSkuTier')]"
+          "name": "Standard",
+          "tier": "Standard"
         },
-        "properties": {
-          "version": "[parameters('mySqlVersion')]",
-          "administratorLogin": "[parameters('administratorLogin')]",
-          "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-          "storage": {
-            "storageSizeGB": "[parameters('databaseSkuSizeMB')]"
-          }
-        }
+        "dependsOn": [
+          "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
+        ]
       }
     ]
   }
