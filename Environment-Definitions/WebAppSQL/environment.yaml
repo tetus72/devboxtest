@@ -56,27 +56,27 @@ parameters:
   #   allowedValues:
   #     - 51200
   #     - 102400
-  - id: databaseSkuTier
-    name: databaseSkuTier
-    description: 'Azure database for MySQL pricing tier'
-    type: string
-    required: true
-    allowedValues:
-      - "GeneralPurpose"
-      - "MemoryOptimized"
-  - id: mySqlVersion
-    name: mySqlVersion
-    description: 'MySQL version'
-    type: string
-    required: true
-    allowedValues:
-      - "5.6"
-      - "5.7"
-  - id: location
-    name: location
-    description: 'Location for all resources.'
-    type: string
-    required: true
+  # - id: databaseSkuTier
+  #   name: databaseSkuTier
+  #   description: 'Azure database for MySQL pricing tier'
+  #   type: string
+  #   required: true
+  #   allowedValues:
+  #     - "GeneralPurpose"
+  #     - "MemoryOptimized"
+  # - id: mySqlVersion
+  #   name: mySqlVersion
+  #   description: 'MySQL version'
+  #   type: string
+  #   required: true
+  #   allowedValues:
+  #     - "5.6"
+  #     - "5.7"
+  # - id: location
+  #   name: location
+  #   description: 'Location for all resources.'
+  #   type: string
+  #   required: true
 
 
 
