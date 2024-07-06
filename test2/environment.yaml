@@ -1,7 +1,0 @@
-# yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
-name: azd-starter
-#version: 1.0.0
-summary: An example for a python API service
-description: The service is named 'python-api'.
-runner: terraform
-templatePath: main.tf
