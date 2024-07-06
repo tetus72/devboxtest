@@ -46,9 +46,9 @@
       },
       "databaseSkuName": {
         "type": "string",
-        "defaultValue": "Standard_D4_v4",
+        "defaultValue": "GP_Standard_D4_v",
         "allowedValues": [
-          "Standard_D4_v4"
+          "GP_Standard_D4_v4"
         ],
         "metadata": {
           "description": "Azure database for MySQL sku name "

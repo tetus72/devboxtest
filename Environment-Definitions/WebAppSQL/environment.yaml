@@ -38,7 +38,7 @@ parameters:
     type: string
     required: true
     allowed:
-      - "Standard_D4_v4"
+      - "GP_Standard_D4_v"
   # - id: databaseSkuSizeMB
   #   name: databaseSkuSizeMB
   #   description: 'Azure database for MySQL Sku Size'
