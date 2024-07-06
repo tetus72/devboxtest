@@ -1,83 +1,82 @@
 # yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
-name: Web-App+MYSQL
+name: WebApp-MYSQL
 version: 1.0.0
-summary: Azure Web App Environment
+summary: Azure Web App Environment with a data store
 description: Deploys an Azure Web App with a data store
 runner: ARM
 templatePath: websql.json
-
-parameters:
-  - id: siteName
-    name: siteName
-    description: 'Name of the Web App.'
-    type: string
-    required: true
-  - id: administratorLogin
-    name: administratorLogin
-    description: 'Database administrator login name'
-    type: string
-    required: true
-  - id: administratorLoginPassword
-    name: administratorLoginPassword
-    description: 'Database administrator password'
-    type: string
-    required: true
-  # - id: databaseSkucapacity
-  #   name: databaseSkucapacity
-  #   description: 'Azure database for MySQL compute capacity in vCores (2,4,8,16,32)'
-  #   type: int
+# parameters:
+#   - id: siteName
+#     name: siteName
+#     description: 'Name of the Web App.'
+#     type: string
+#     required: true
+  # - id: administratorLogin
+  #   name: administratorLogin
+  #   description: 'Database administrator login name'
+  #   type: string
+  #   required: true
+  # - id: administratorLoginPassword
+  #   name: administratorLoginPassword
+  #   description: 'Database administrator password'
+  #   type: string
+  #   required: true
+  # # - id: databaseSkucapacity
+  # #   name: databaseSkucapacity
+  # #   description: 'Azure database for MySQL compute capacity in vCores (2,4,8,16,32)'
+  # #   type: int
+  # #   required: true
+  # #   allowedValues:
+  # #     - 2
+  # #     - 4
+  # #     - 8
+  # #     - 16
+  # #     - 32
+  # - id: databaseSkuName
+  #   name: databaseSkuName
+  #   description: 'Azure database for MySQL sku name'
+  #   type: string
   #   required: true
   #   allowedValues:
-  #     - 2
-  #     - 4
-  #     - 8
-  #     - 16
-  #     - 32
-  - id: databaseSkuName
-    name: databaseSkuName
-    description: 'Azure database for MySQL sku name'
-    type: string
-    required: true
-    allowedValues:
-      - "GP_Gen5_2"
-      - "GP_Gen5_4"
-      - "GP_Gen5_8"
-      - "GP_Gen5_16"
-      - "GP_Gen5_32"
-      - "MO_Gen5_2"
-      - "MO_Gen5_4"
-      - "MO_Gen5_8"
-      - "MO_Gen5_16"
-      - "MO_Gen5_32"
-  # - id: databaseSkuSizeMB
-  #   name: databaseSkuSizeMB
-  #   description: 'Azure database for MySQL Sku Size'
-  #   type: int
+  #     - "GP_Gen5_2"
+  #     - "GP_Gen5_4"
+  #     - "GP_Gen5_8"
+  #     - "GP_Gen5_16"
+  #     - "GP_Gen5_32"
+  #     - "MO_Gen5_2"
+  #     - "MO_Gen5_4"
+  #     - "MO_Gen5_8"
+  #     - "MO_Gen5_16"
+  #     - "MO_Gen5_32"
+  # # - id: databaseSkuSizeMB
+  # #   name: databaseSkuSizeMB
+  # #   description: 'Azure database for MySQL Sku Size'
+  # #   type: int
+  # #   required: true
+  # #   allowedValues:
+  # #     - 51200
+  # #     - 102400
+  # - id: databaseSkuTier
+  #   name: databaseSkuTier
+  #   description: 'Azure database for MySQL pricing tier'
+  #   type: string
   #   required: true
   #   allowedValues:
-  #     - 51200
-  #     - 102400
-  - id: databaseSkuTier
-    name: databaseSkuTier
-    description: 'Azure database for MySQL pricing tier'
-    type: string
-    required: true
-    allowedValues:
-      - "GeneralPurpose"
-      - "MemoryOptimized"
-  - id: mySqlVersion
-    name: mySqlVersion
-    description: 'MySQL version'
-    type: string
-    required: true
-    allowedValues:
-      - "5.6"
-      - "5.7"
-  - id: location
-    name: location
-    description: 'Location for all resources.'
-    type: string
-    required: true
+  #     - "GeneralPurpose"
+  #     - "MemoryOptimized"
+  # - id: mySqlVersion
+  #   name: mySqlVersion
+  #   description: 'MySQL version'
+  #   type: string
+  #   required: true
+  #   allowedValues:
+  #     - "5.6"
+  #     - "5.7"
+  # - id: location
+  #   name: location
+  #   description: 'Location for all resources.'
+  #   type: string
+  #   required: true
 
 
 
