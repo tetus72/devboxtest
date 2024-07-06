@@ -38,16 +38,7 @@ parameters:
     type: string
     required: true
     allowed:
-      - "GP_Gen5_2"
-      - "GP_Gen5_4"
-      - "GP_Gen5_8"
-      - "GP_Gen5_16"
-      - "GP_Gen5_32"
-      - "MO_Gen5_2"
-      - "MO_Gen5_4"
-      - "MO_Gen5_8"
-      - "MO_Gen5_16"
-      - "MO_Gen5_32"
+      - "Standard_D4_v4"
   # - id: databaseSkuSizeMB
   #   name: databaseSkuSizeMB
   #   description: 'Azure database for MySQL Sku Size'
