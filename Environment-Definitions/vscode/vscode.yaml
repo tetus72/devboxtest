@@ -1,0 +1,8 @@
+$schema: "1.0"
+name: "vdi-dev"
+description: "This definition is for VScode deployment on VDI"
+tasks:
+  - name: winget
+    description: Install Visual Studio Code
+    parameters:
+      package:  Microsoft.VisualStudioCode
