@@ -6,3 +6,5 @@ tasks:
     description: Install Visual Studio Code
     parameters:
       package:  "Microsoft.VisualStudioCode"
+      scope: "user"
+      source: "winget"
