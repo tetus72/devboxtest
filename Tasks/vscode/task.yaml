@@ -5,4 +5,4 @@ tasks:
   - name: winget
     description: Install Visual Studio Code
     parameters:
-      package:  Microsoft.VisualStudioCode
+      package:  "Microsoft.VisualStudioCode"
